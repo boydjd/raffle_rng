@@ -43,8 +43,8 @@ for mention in reddit.inbox.unread(limit=None):
 			pass
 	# if a slot total was included, randomly determines a winner from the slot range
 		if total_slots != 0:
-			winner = random.randint(0, total_slots)
-			raffle_reply = "The winner is: " + str(winner)
+			winner = random.randint(1, total_slots)
+			raffle_reply = "The winner is: " + str(winner) + "\n \n *View the source code at https://github.com/diversionmary/raffle_rng*"
 			mention.reply(raffle_reply)
 			print(raffle_reply)
 			mention.mark_read()
