@@ -16,7 +16,7 @@ Setup Instructions:
 1. Create reddit app here: https://www.reddit.com/prefs/apps/
 1. Write down client_id, client_secret
 1. Input client_id, client_secret, username and password for /u/botname account within raffle_rng.py 
-1. Input bot_name, client_id, client_secret, username and password in praw.ini
+1. Input botname, client_id, client_secret, username and password in praw.ini
 1. Modify user_agent line to be unique
 1. Modify error_reply text as necessary
 1. Modify raffle_reply text as necessary
