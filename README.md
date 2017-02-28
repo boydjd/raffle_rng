@@ -12,11 +12,10 @@ Setup Instructions:
 ========
 
 1. Install python (I used 2.75)
-1. Install PRAW 4 via pip
+1. Install PRAW 4 via pip: https://praw.readthedocs.io/en/latest/getting_started/installation.html
 1. Create reddit app here: https://www.reddit.com/prefs/apps/
 1. Write down client_id, client_secret
 1. Input client_id, client_secret, username and password for /u/botname account within raffle_rng.py 
-1. Input botname, client_id, client_secret, username and password in praw.ini
 1. Modify user_agent line to be unique
 1. Modify error_reply text as necessary
 1. Modify raffle_reply text as necessary
