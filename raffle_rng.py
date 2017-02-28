@@ -9,7 +9,7 @@ print "STARTING RAFFLE-BOT..."
 
 #authenticate
 user_agent='raffle_rng bot 1.0 by diversionmary make this unique'
-reddit = praw.Reddit('raffle_rng', user_agent=user_agent, client_id='put client_id here', client_secret='put client_secret here', username='put reddit username here', password='put password here')
+reddit = praw.Reddit('botname', user_agent=user_agent, client_id='put client_id here', client_secret='put client_secret here', username='put reddit username here', password='put password here')
 
 #reply if error
 error_reply = "Call the bot like this: /u/botname 20"
