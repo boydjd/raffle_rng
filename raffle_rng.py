@@ -37,10 +37,12 @@ while True:
 		for word in comment_word_list:
 		# parses any number strings in the comment to integers
 			slots = parse_to_integer(word)
-			if slots != 0 and total_slots == 0:
+			if slots > 0 and total_slots == 0:
 				total_slots = slots
 			else:
-				pass
+				mention.reply(error_reply)
+				mention.mark_read()
+				break
 		# if a slot total was included, randomly determines a winner from the slot range
 			if total_slots != 0:
 				winner = random.randint(1, total_slots)
