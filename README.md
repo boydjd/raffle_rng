@@ -1,6 +1,6 @@
 Summary:
 ========
-PRAW 4 reddit bot that replies to mentions with a random integer within the limits defined by the comment that calls the bot. 
+raffle_rng is a reddit bot created with the praw 4 api wrapper that replies to mentions with a random integer within the limits defined by the comment that calls the bot. 
 
 If the bot is mentioned like this: /u/botname 30 it will reply with a number between 1 and 30.
 By default that text is: "The winner is: N"
