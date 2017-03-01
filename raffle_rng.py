@@ -1,9 +1,7 @@
 #!/usr/bin/python
 import time
 import praw
-import re
 import random
-import datetime
 
 print "STARTING RAFFLE-BOT..."
 
@@ -18,14 +16,11 @@ error_reply = "Call the bot like this: /u/botname 20"
 def parse_to_integer(string):
     num_slots = 0
     try:
-        int(string)
         num_slots = int(string)
     except ValueError:
         pass
     return num_slots
 
-
-from praw.models import Comment
 #get unread mentions
 for mention in reddit.inbox.unread(limit=None):
 	comment_word_list = mention.body.split(" ")
