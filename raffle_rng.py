@@ -52,8 +52,8 @@ for mention in reddit.inbox.unread(limit=None):
 			total_slots = slots
 		elif slots <= 0 and total_slots == 0:
 			mention.reply(error_reply)
-                	mention.mark_read()
-                	break 
+			mention.mark_read()
+               		break 
 		else:
 			pass
 	# Randomly determine a winner from the slot range and reply
