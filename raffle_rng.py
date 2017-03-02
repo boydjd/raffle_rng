@@ -38,10 +38,16 @@ for mention in reddit.inbox.unread(limit=None):
 	comment_word_list = mention.body.split(" ")
 	# If the first item in the list isn't the bot's name, break
 	if mention.body.split(" ")[0] <> botname:
+		mention.reply(error_reply)
+		print "botname trap"
+		print mention.body.split(" ")[0]
+		mention.mark_read()
 		break
 	# If the body isn't two items (the bot's name and an integer), reply with instructions then break
 	elif len(comment_word_list) !=2:
 		mention.reply(error_reply)
+		print "length trap"
+		print len(comment_word_list)
 		mention.mark_read()
 		break
 	total_slots = 0
@@ -50,19 +56,15 @@ for mention in reddit.inbox.unread(limit=None):
 		slots = parse_to_integer(word)
 		if slots > 0 and total_slots == 0:
 			total_slots = slots
-		elif slots <= 0 and total_slots == 0:
-			mention.reply(error_reply)
-			mention.mark_read()
-               		break 
 		else:
 			pass
 	# Randomly determine a winner from the slot range and reply
-		if total_slots != 0:
-			winner = random.randint(1, total_slots)
-			raffle_reply = "The winner is: " + str(winner) + "\n \n *View the source code at https://github.com/diversionmary/raffle_rng*"
-			mention.reply(raffle_reply)
-			print(raffle_reply)
-			mention.mark_read()
+	if total_slots != 0:
+		winner = random.randint(1, total_slots)
+		raffle_reply = "The winner is: " + str(winner) + "\n \n *View the source code at https://github.com/diversionmary/raffle_rng*"
+		mention.reply(raffle_reply)
+		print(raffle_reply)
+		mention.mark_read()
 
 # If you want this script to be a TSR uncomment the next two lines and indent them once as noted above.
 #print "Starting 10 minute sleep before next run."
