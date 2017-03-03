@@ -9,7 +9,7 @@ print "STARTING RAFFLE-BOT..."
 version = "1.4"
 
 # Modify the user agent string to something unique
-user_agent='raffle_rng bot 1.0 by diversionmary make this unique'
+user_agent="raffle_rng bot" + version + " by diversionmary make this unique"
 
 # If you're authenticating using praw.ini uncomment the next line:
 reddit = praw.Reddit('botname', user_agent=user_agent)
