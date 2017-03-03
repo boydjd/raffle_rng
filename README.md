@@ -4,6 +4,10 @@ raffle_rng is a reddit bot created with the praw 4 api wrapper that replies to m
 
 If the bot is mentioned like this: /u/botname 30 it will reply with a number between 1 and 30.
 By default that text is: "The winner is: N"
+
+If the bot is mentioned but the number is bad or missing it will reply with and error message. 
+By default that test is: Call the bot with total slots greater than 0 like this: /u/botname20 
+ 
   
 Setup Instructions:
 ========
@@ -16,4 +20,5 @@ Setup Instructions:
 1. Input client_id, client_secret, username and password in [botname] section within praw.ini
 1. Modify user_agent line to be unique
 1. Modify raffle_reply text as necessary
+1. Modify error_reply text as necessary
 1. Create a scheduled task to run the raffle_rng.py script as necessary. Be mindful of Reddit's 10 minute throttle for low-karma accounts.
