@@ -6,13 +6,13 @@ import random
 print "STARTING RAFFLE-BOT..."
 
 # Current version
-version = "1.4"
+version = "1.5"
 
 # Modify the user agent string to something unique
-user_agent="raffle_rng bot" + version + " by diversionmary make this unique"
+user_agent="raffle_rng bot" + version + " by diversionmary make this part unique"
 
-# If you're authenticating using praw.ini uncomment the next line:
-reddit = praw.Reddit('botname', user_agent=user_agent)
+# Define a section for this bot within your local copy of praw.ini: http://praw.readthedocs.io/en/latest/getting_started/configuration/prawini.html
+reddit = praw.Reddit('raffle_rng', user_agent=user_agent)
 
 # Automatically grabs the username of the bot
 username = "/u/" + str(reddit.user.me())
@@ -31,34 +31,33 @@ def parse_to_integer(string):
 # Get unread mentions
 for mention in reddit.inbox.unread(limit=None):
 	
-	# Get first two words from body of message
+	# Get first two words from body of message if available
 	comment_word_list = mention.body.split(" ")
 	word1 = str(comment_word_list[0])
-	word2 = parse_to_integer(comment_word_list[1])
+	if len(comment_word_list) >= 2:
+		word2 = parse_to_integer(comment_word_list[1])
 	
-	# If the first item in the list is the bot's name, and the second item isn't an int reply with instructions
-	if word1 == username and word2 <= 0:
+	# If less than two words, or if the first word isn't our bot's reddit username, mark message read and move on
+	elif word1 != username:
+		print "Not a raffle call, ignore"
+		mention.mark_read()
+                break
+
+        # If the first item in the list is the bot's name and that's it reply with instructions
+        if word1 == username and len(comment_word_list) < 2:
+                print "Bad raffle call, reply"
+                mention.reply(error_reply)
+                mention.mark_read()
+                break
+
+	# If the first item in the list is the bot's name, and the slot number is invalid reply with instructions
+	elif word1 == username and word2 <= 0:
 		print "Bad raffle call, reply"
-		print str(mention.body)
-		print word1
-		print username
-		print word2
-		print isinstance(word2, (int, long))
 		mention.reply(error_reply)
 		mention.mark_read()
 		break
-
-	# If the first item in the list isn't the bot's name, ignore
-	elif word1 != username:
-		print "Not a raffle call, ignore"
-		print str(mention.body)
-		print word1
-		print username
-		print word2
-                mention.mark_read()
-                break
 	
-	# If we made it this far, turn the second item into an integer
+	# If we made it this far, turn word2 into total slots
 	total_slots = 0
 	total_slots = word2
 	
