@@ -43,14 +43,14 @@ for mention in reddit.inbox.unread(limit=None):
 		mention.mark_read()
                 break
 
-        # If the first item in the list is the bot's name and that's it reply with instructions
+        # If the first item in the list is only the bot's name reply with instructions
         if word1 == username and len(comment_word_list) < 2:
                 print "Bad raffle call, reply"
                 mention.reply(error_reply)
                 mention.mark_read()
                 break
 
-	# If the first item in the list is the bot's name, and the slot number is invalid reply with instructions
+	# If the first item in the list is the bot's name, and the slot number is invalid, reply with instructions
 	elif word1 == username and word2 <= 0:
 		print "Bad raffle call, reply"
 		mention.reply(error_reply)
