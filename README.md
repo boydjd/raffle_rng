@@ -3,10 +3,12 @@ Summary:
 raffle_rng is a reddit bot created with the praw 4 api wrapper that replies to mentions with a random integer within the limits defined by the comment that calls the bot. 
 
 If the bot is mentioned like this: /u/botname 30 it will reply with a number between 1 and 30.
-By default that text is: "The winner is: N"
+    By default that text is: "The winner is: N"
 
 If the bot is mentioned but the number is bad or missing it will reply with and error message. 
-By default that test is: Call the bot with total slots greater than 0 like this: /u/botname20 
+    By default that test is: "Call the bot with total slots greater than 0 like this: /u/botname20"
+
+Both messages include version number and a link to the source code. 
  
   
 Setup Instructions:
