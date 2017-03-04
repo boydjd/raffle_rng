@@ -34,7 +34,7 @@ for mention in reddit.inbox.unread(limit=None):
 	# Get first two words from body of message if available
 	comment_word_list = mention.body.split(" ")
 	word1 = str(comment_word_list[0])
-	if len(comment_word_list) >= 2:
+	if word1 == username and len(comment_word_list) >= 2:
 		word2 = parse_to_integer(comment_word_list[1])
 	
 	# If less than two words, or if the first word isn't our bot's reddit username, mark message read and move on
