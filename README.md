@@ -6,7 +6,7 @@ If the bot is mentioned like this: /u/botname 30 it will reply with a number bet
     By default that text is: "The winner is: N"
 
 If the bot is mentioned but the number is bad or missing it will reply with and error message. 
-    By default that test is: "Call the bot with total slots greater than 0 like this: /u/botname20"
+    By default that text is: "Call the bot with total slots greater than 0 like this: /u/botname 20"
 
 Both messages include version number and a link to the source code. 
  

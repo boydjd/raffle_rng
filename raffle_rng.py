@@ -12,7 +12,7 @@ version = "1.5"
 user_agent="raffle_rng bot" + version + " by diversionmary make this part unique"
 
 # Define a section for this bot within your local copy of praw.ini: http://praw.readthedocs.io/en/latest/getting_started/configuration/prawini.html
-reddit = praw.Reddit('raffle_rng', user_agent=user_agent)
+reddit = praw.Reddit('botname', user_agent=user_agent)
 
 # Automatically grabs the username of the bot
 username = "/u/" + str(reddit.user.me())
@@ -21,12 +21,12 @@ username = "/u/" + str(reddit.user.me())
 error_reply = "Call the bot with total slots greater than 0 like this: " + username + " 20 \n \n *View the " + version + " source code at https://github.com/diversionmary/raffle_rng*"
 
 def parse_to_integer(string):
-    num_slots = 0
-    try:
-        num_slots = int(string)
-    except ValueError:
-        pass
-    return num_slots
+	num_slots = 0
+	try:
+		num_slots = int(string)
+	except ValueError:
+		pass
+	return num_slots
 
 # Get unread mentions
 for mention in reddit.inbox.unread(limit=None):
@@ -41,14 +41,14 @@ for mention in reddit.inbox.unread(limit=None):
 	elif word1 != username:
 		print "Not a raffle call, ignore"
 		mention.mark_read()
-                break
+		break
 
-        # If the first item in the list is only the bot's name reply with instructions
-        if word1 == username and len(comment_word_list) < 2:
-                print "Bad raffle call, reply"
-                mention.reply(error_reply)
-                mention.mark_read()
-                break
+	# If the first item in the list is only the bot's name reply with instructions
+	if word1 == username and len(comment_word_list) < 2:
+		print "Bad raffle call, reply"
+		mention.reply(error_reply)
+		mention.mark_read()
+		break
 
 	# If the first item in the list is the bot's name, and the slot number is invalid, reply with instructions
 	elif word1 == username and word2 <= 0:
