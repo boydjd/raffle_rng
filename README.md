@@ -24,3 +24,8 @@ Setup Instructions:
 1. Modify raffle_reply text as necessary
 1. Modify error_reply text as necessary
 1. Create a scheduled task to run the raffle_rng.py script as necessary. Be mindful of Reddit's 10 minute throttle for low-karma accounts.
+
+# Verifying Random Numbers
+See https://github.com/diversionmary/raffle_rng/blob/master/VERIFY.md
+
+Hashes are `SHA1` and the modulus of the random number has `1` added to it to make it non-zero indexed.
