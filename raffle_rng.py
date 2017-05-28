@@ -42,9 +42,9 @@ def parse_to_integer(string):
 # Get random number with seed
 def get_random_value(eventual_max, seed):
     # Minimum value
-    min = 0
+    min = 1
     # Maximum value
-    max = eventual_max * math.pow(10, 6)
+    max = eventual_max * math.pow(10, 6) - 1
     # Set our random seed
     random.seed(seed)
     # Get our random number
