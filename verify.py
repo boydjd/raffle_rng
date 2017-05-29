@@ -13,10 +13,10 @@ import platform
 # Put the number of slots here
 # Used as a modulus and max calculation
 # of random number
-slots = 3500
+slots = 30
 
 # the seed you're testing
-seed = 'c939b0f9103d5c656736eb4298040b7ad25f2d6c'
+seed = 'PASTE_SEED_HERE'
 
 # This sets the seed that python uses to 
 # generate the random number
