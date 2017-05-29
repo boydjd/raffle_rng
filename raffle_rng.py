@@ -4,11 +4,12 @@ import praw
 import random
 import math
 import hashlib
+import platform
 
 print "STARTING RAFFLE-BOT..."
 
 # Current version
-version = "2.0.0"
+version = "2.0.1"
 
 # Repository URL
 url = "https://github.com/diversionmary/raffle_rng"
@@ -111,12 +112,14 @@ for mention in reddit.inbox.unread(limit=None):
 
 ^^Seed: ^^[{}]({})    
 ^^Random ^^Number: ^^{} ^^| 
-^^Modulus: ^^{} ^^slots    
+^^Modulus: ^^{} ^^| 
+^^Python: ^^{}    
 Verify this result or view the {} source code at {}
 """.format(winner, 
             seed, verify_url, 
             large_random, 
-            total_slots,
+            total_slots, 
+            platform.python_version(),
             version, url)
     mention.reply(raffle_reply)
     print(winner)

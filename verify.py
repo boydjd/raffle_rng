@@ -3,16 +3,20 @@
 # Once you enter the seed and number of slots
 # you should be able to run this script repeatedly
 # and get he same result every time you run it
+#
+# Make sure to also be running the same version of
+# Python, or else you'll likely get a different result
 
 import random
+import platform
 
 # Put the number of slots here
 # Used as a modulus and max calculation
 # of random number
-slots = 20
+slots = 3500
 
 # the seed you're testing
-seed = 'PASTE_SEED_HERE'
+seed = 'c939b0f9103d5c656736eb4298040b7ad25f2d6c'
 
 # This sets the seed that python uses to 
 # generate the random number
@@ -36,6 +40,9 @@ The winner is {}
 Seed: {}
 Random Number: {}
 Modulus (slots): {}
-""".format(winner, seed, big_result, slots)
+Python: {}
+""".format(winner, seed, 
+        big_result, slots, 
+        platform.python_version())
 
 print(response)
