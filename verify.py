@@ -5,7 +5,7 @@
 # and get he same result every time you run it
 #
 # Make sure to also be running the same version of
-# Python, or else you'll likely get a different result
+# Python, or else you might get a different result
 
 import random
 import platform
@@ -14,17 +14,17 @@ import math
 # Put the number of slots here
 # Used as a modulus and max calculation
 # of random number
-slots = 3
+slots = 30
 
 # the seed you're testing
-seed = 'f6f40748270f95f6b62699df313f27d27209a1d6'
+seed = 'PASTE_SEED_HERE'
 
 # This sets the seed that python uses to 
 # generate the random number
 random.seed(seed)
 
 # This is our actual random number
-# Minimum is always 1
+# Minimum is always 0
 # Maximum is one million times number of slots minus one
 # which will give an even distribution chance
 min = 0
