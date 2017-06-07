@@ -3,13 +3,18 @@
 # Once you enter the seed and number of slots
 # you should be able to run this script repeatedly
 # and get he same result every time you run it
+#
+# Make sure to also be running the same version of
+# Python, or else you might get a different result
 
 import random
+import platform
+import math
 
 # Put the number of slots here
 # Used as a modulus and max calculation
 # of random number
-slots = 20
+slots = 30
 
 # the seed you're testing
 seed = 'PASTE_SEED_HERE'
@@ -19,10 +24,12 @@ seed = 'PASTE_SEED_HERE'
 random.seed(seed)
 
 # This is our actual random number
-# Minimum is always 1
-# Maximum is one million times number of slots
+# Minimum is always 0
+# Maximum is one million times number of slots minus one
 # which will give an even distribution chance
-big_result = random.randint(1, slots * 1000000)
+min = 0
+max = (slots * math.pow(10, 6)) - 1
+big_result = random.randint(min, max)
 
 # The winning number is the big random number 
 # modulus the number of slots plus one
@@ -35,7 +42,12 @@ response = """
 The winner is {}
 Seed: {}
 Random Number: {}
-Modulus (slots): {}
-""".format(winner, seed, big_result, slots)
+Minimum: {}
+Maximum: {}
+Modulus: {}
+Python: {}
+""".format(winner, seed, 
+        big_result, min, max, slots, 
+        platform.python_version())
 
 print(response)

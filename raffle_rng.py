@@ -1,14 +1,16 @@
 #!/usr/bin/python
+
 import time
 import praw
 import random
 import math
 import hashlib
+import platform
 
 print "STARTING RAFFLE-BOT..."
 
 # Current version
-version = "2.0.0"
+version = "2.0.2"
 
 # Repository URL
 url = "https://github.com/diversionmary/raffle_rng"
@@ -42,9 +44,10 @@ def parse_to_integer(string):
 # Get random number with seed
 def get_random_value(eventual_max, seed):
     # Minimum value
-    min = 1
+    min = 0
     # Maximum value
-    max = eventual_max * math.pow(10, 6) - 1
+    max = (eventual_max * math.pow(10, 6)) - 1
+    print "min: {}, max: {}".format(min, max)
     # Set our random seed
     random.seed(seed)
     # Get our random number
@@ -111,13 +114,16 @@ for mention in reddit.inbox.unread(limit=None):
 
 ^^Seed: ^^[{}]({})    
 ^^Random ^^Number: ^^{} ^^| 
-^^Modulus: ^^{} ^^slots    
-Verify this result or view the {} source code at {}
+^^Modulus: ^^{} ^^| 
+^^Python: ^^{}    
+Verify this result or view the {} source code on [github]({})
 """.format(winner, 
             seed, verify_url, 
             large_random, 
-            total_slots,
+            total_slots, 
+            platform.python_version(),
             version, url)
-    mention.reply(raffle_reply)
-    print(winner)
-    mention.mark_read()
+            
+        mention.reply(raffle_reply)
+        print(winner)
+        mention.mark_read()
