@@ -110,15 +110,16 @@ for mention in reddit.inbox.unread(limit=None):
         # Modulus the large random number to give us our winner
         winner_index = reduce_random_number(total_slots, large_random)
         winner = str(winner_index)
+        direct_verify = "http://verify.diversionmary.com/index.py?slots={}&seed={}".format(total_slots, seed)
         raffle_reply = """# The winner is: {}
-
+        
 ^^Seed: ^^[{}]({})    
 ^^Random ^^Number: ^^{} ^^| 
 ^^Modulus: ^^{} ^^| 
 ^^Python: ^^{}    
-Verify this result or view the {} source code on [github]({})
+View the {} source code on [github]({})
 """.format(winner, 
-            seed, verify_url, 
+            seed, direct_verify, 
             large_random, 
             total_slots, 
             platform.python_version(),
