@@ -21,7 +21,8 @@ seed = 'PASTE_SEED_HERE'
 
 # This sets the seed that python uses to 
 # generate the random number
-random.seed(seed)
+rnd = random.Random(int(seed, 16))
+# random.seed(seed)
 
 # This is our actual random number
 # Minimum is always 0
@@ -29,7 +30,7 @@ random.seed(seed)
 # which will give an even distribution chance
 min = 0
 max = (slots * math.pow(10, 6)) - 1
-big_result = random.randint(min, max)
+big_result = rnd.randint(min, max)
 
 # The winning number is the big random number 
 # modulus the number of slots plus one
@@ -41,12 +42,13 @@ winner = big_result % slots + 1
 response = """
 The winner is {}
 Seed: {}
+Seed (long): {}
 Random Number: {}
 Minimum: {}
 Maximum: {}
 Modulus: {}
 Python: {}
-""".format(winner, seed, 
+""".format(winner, seed, int(seed, 16),
         big_result, min, max, slots, 
         platform.python_version())
 

@@ -49,9 +49,10 @@ def get_random_value(eventual_max, seed):
     max = (eventual_max * math.pow(10, 6)) - 1
     print "min: {}, max: {}".format(min, max)
     # Set our random seed
-    random.seed(seed)
+    rnd = random.Random(int(seed, 16))
+    # random.seed(seed)
     # Get our random number
-    return random.randint(min, max)
+    return rnd.randint(min, max)
 
 # turn larger random number into a slot number
 def reduce_random_number(slots, num):
