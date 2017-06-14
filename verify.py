@@ -14,10 +14,10 @@ import math
 # Put the number of slots here
 # Used as a modulus and max calculation
 # of random number
-slots = 30
+slots = int(raw_input("Total slots: "))
 
 # the seed you're testing
-seed = 'PASTE_SEED_HERE'
+seed = raw_input("Seed: ")
 
 # This sets the seed that python uses to 
 # generate the random number

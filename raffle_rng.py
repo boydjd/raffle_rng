@@ -10,7 +10,7 @@ import platform
 print "STARTING RAFFLE-BOT..."
 
 # Current version
-version = "2.0.2"
+version = "2.0.3"
 
 # Repository URL
 url = "https://github.com/diversionmary/raffle_rng"
