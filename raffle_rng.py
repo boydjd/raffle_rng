@@ -18,8 +18,11 @@ url = "https://github.com/diversionmary/raffle_rng"
 # Instructions on how to verify
 verify_url = "https://github.com/diversionmary/raffle_rng/blob/master/VERIFY.md"
 
+# Verify portal
+verify_portal = "http://yourdomainhere.com/"
+
 # Modify the user agent string to something unique
-user_agent = "raffle_rng bot {} by diversionmary".format(version)
+user_agent = "raffle_rng bot {}".format(version)
 
 # Define a section for this bot within your local copy of praw.ini: 
 # http://praw.readthedocs.io/en/latest/getting_started/configuration/prawini.html
@@ -111,7 +114,7 @@ for mention in reddit.inbox.unread(limit=None):
         # Modulus the large random number to give us our winner
         winner_index = reduce_random_number(total_slots, large_random)
         winner = str(winner_index)
-        direct_verify = "http://verify.diversionmary.com/index.py?slots={}&seed={}".format(total_slots, seed)
+        direct_verify = "{}/index.py?slots={}&seed={}".format(verify_portal, total_slots, seed)
         raffle_reply = """# The winner is: {}
         
 ^^Seed: ^^[{}]({})    
